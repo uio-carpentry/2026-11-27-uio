@@ -1,21 +1,21 @@
 ---
 # More detailed instructions (including how to fill these variables for an # online workshop) are available at https://carpentries.github.io/workshop-template/customization/index.html#yaml-header
 # Required variables
-venue: "FIXME"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
-address: "FIXME"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
-country: "FIXME"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
-language: "FIXME"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
-latitude: "FIXME"     # decimal latitude of workshop venue - this should be a number greater than or equal to -90, and less than or equal to 90 (use https://www.latlong.net/)
-longitude: "FIXME"    # decimal longitude of the workshop venue - this should be a number greater than or equal to -180, and less than or equal to 180 (use https://www.latlong.net)
-humandate: "FIXME"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: "FIXME"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
-startdate: FIXME      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: FIXME        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["instructor one", "instructor two"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["helper one", "helper two"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
-email: ["first@example.org","second@example.org"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
+venue: "University of Oslo"     # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+address: "DSC Oasen, Georg Sverdrups hus, Moltke Moes vei 39, 0851 Oslo"     # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+country: "no"     # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
+language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
+latitude: "59.9399"     # decimal latitude of workshop venue - this should be a number greater than or equal to -90, and less than or equal to 90 (use https://www.latlong.net/)
+longitude: "10.7224"     # decimal longitude of the workshop venue - this should be a number greater than or equal to -180, and less than or equal to 180 (use https://www.latlong.net)
+humandate: "Nov 27, 2026"     # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humantime: "9:00 am - 3:30 pm CET"     # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
+startdate: 2026-11-27     # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2026-11-27     # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+instructor: ["Mohamed Abdelhalim", "Lex Nederbragt"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: ["Ragnhild Sundsbak", "Jamie Yates Findlay", "Arash Ahmadi", "Nisrine Souai"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+email: ["mohamed.abdelhalim@medisin.uio.no", "lex.nederbragt@ibv.uio.no"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 # Optional variables
-collaborative_notes:  # URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
+collaborative_notes: "https://pad.carpentries.org/2026-11-27-uio" # URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 what3words:           # what3words (https://what3words.com) address of the workshop venue, without leading slashes e.g. "globe.lessening.computers"
 # DON'T CHANGE THIS
@@ -512,13 +512,7 @@ of code below the Schedule `<h2>` header below with
 <div class="card mb-2">
   <h5 class="card-header">Schedule</h5>
   <div class="card-body">
-    {% assign schedule_file = site.carpentry | append: '/schedule.html' %}
-    {% if isOfficial %}
-    {% include {{ schedule_file }} %}
-    {% elsif site.carpentry == "incubator" %}
-    This workshop is teaching a lesson in <a href="https://carpentries-incubator.org/">The Carpentries Incubator</a>.
-    Please check <a href="{{site.incubator_lesson_site}}">the lesson homepage</a> for a list of lesson sections and estimated timings.
-    {% endif %}
+    {% include custom-schedule.html %}
 
     {% comment %}
     Edit/replace the text above if you want to include a schedule table.
